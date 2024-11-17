@@ -1,8 +1,9 @@
 import 'package:fitn_earn/SignIN/Google/SignIN_GoogleMain.dart';
+import 'package:fitn_earn/SignUp/Google/SignUP_GoogleMain.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class SignIN_Google_cancelPage extends StatelessWidget {
+class SignUP_Google_cancelPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,11 +33,11 @@ class SignIN_Google_cancelPage extends StatelessWidget {
                             children: [
                               Image.asset(
                                 'assets/google.png',
-                                width: 40.w, // Responsive width for the Google logo
+                                width: 40.w, fit: BoxFit.contain,// Responsive width for the Google logo
                               ),
                               SizedBox(width: 8.w),
                               Text(
-                                'Sign in with Google',
+                                'Sign up with Google',
                                 style: TextStyle(
                                   color: Colors.white,
                                   fontSize: 18.sp, // Responsive font size
@@ -44,7 +45,7 @@ class SignIN_Google_cancelPage extends StatelessWidget {
                                 ),
                               ),
                             ],
-                          ), SizedBox(height: 9.h,),
+                          ),SizedBox(height: 9.h,),
                           Padding(
                             padding:  EdgeInsets.symmetric(horizontal: 5.w),
                             child: Divider(height: 1.h,thickness: 1.sp,color: Colors.grey,),
@@ -82,7 +83,7 @@ class SignIN_Google_cancelPage extends StatelessWidget {
 
                           // User Account
                           GestureDetector(onTap: (){
-                            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_)=>SignIn_Google_mainPage()));
+                            Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_)=>SignUp_Google_mainPage()));
                           },
                             child: ListTile(
                               leading: CircleAvatar(
@@ -106,7 +107,6 @@ class SignIN_Google_cancelPage extends StatelessWidget {
                             ),
                           ),
                           Divider(color: Colors.white70),
-
                           // Use another account option
                           ListTile(
                             leading: Icon(
@@ -123,7 +123,6 @@ class SignIN_Google_cancelPage extends StatelessWidget {
                             ),
                           ),
                           Divider(color: Colors.white70),
-
                           // Footer text
                           SizedBox(
                             width: 288.w,
@@ -169,61 +168,60 @@ class SignIN_Google_cancelPage extends StatelessWidget {
                                 ],
                               ),
                             ),
-                          ),
+                          ),SizedBox(height: 20.h,)
                         ],
                       ),
-                    ),
-                    SizedBox(height: 20.h,),
+                    ),SizedBox(height: 20.h,),
                     Row(
                       children: [
                         SizedBox(width: 15.w),
-                        Text(
-                          'English (United Kingdom)',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 12.sp,
-                            fontFamily: 'Lato',
-                            fontWeight: FontWeight.w700,
-                          ),
-                        ),
-                        SizedBox(width: 10.w),
+                              Text(
+                                'English (United Kingdom)',
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.grey,
+                                  fontSize: 12.sp,
+                                  fontFamily: 'Lato',
+                                  fontWeight: FontWeight.w700,
+                                ),
+                              ),
+                               SizedBox(width: 10.w),
                         Icon(Icons.arrow_drop_down, color: Colors.grey, size: 24.sp),
 
-                        SizedBox(width: 15.w),
-                        Text(
-                          'Help ',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 12.sp,
-                            fontFamily: 'Lato',
-                            fontWeight: FontWeight.w700,
+                         SizedBox(width: 15.w),
+                          Text(
+                            'Help ',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 12.sp,
+                              fontFamily: 'Lato',
+                              fontWeight: FontWeight.w700,
+                            ),
                           ),
-                        ),
-                        SizedBox(width: 15.w),
-                        Text(
-                          'Privacy',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 12.sp,
-                            fontFamily: 'Lato',
-                            fontWeight: FontWeight.w700,
+                           SizedBox(width: 15.w),
+                          Text(
+                            'Privacy',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 12.sp,
+                              fontFamily: 'Lato',
+                              fontWeight: FontWeight.w700,
+                            ),
                           ),
-                        ),
-                        SizedBox(width: 15.w),
-                        Text(
-                          'Terms',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 12.sp,
-                            fontFamily: 'Lato',
-                            fontWeight: FontWeight.w700,
+                           SizedBox(width: 15.w),
+                          Text(
+                            'Terms',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.grey,
+                              fontSize: 12.sp,
+                              fontFamily: 'Lato',
+                              fontWeight: FontWeight.w700,
 
+                            ),
                           ),
-                        ),
 
                       ],
                     ),

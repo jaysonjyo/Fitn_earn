@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../Starting/FitnessScreen.dart';
+
 class Splash extends StatefulWidget {
   const Splash({super.key});
 
@@ -48,7 +50,6 @@ class _SplashState extends State<Splash> with TickerProviderStateMixin {
         tween: Tween<double>(begin: 0.2, end: 0.39).chain(CurveTween(curve: Curves.easeInOut)), // Top to middle
         weight: 100,
       ),
-
     ]).animate(_controller);
 
     // Adjust the Size Animation
@@ -105,8 +106,16 @@ class _SplashState extends State<Splash> with TickerProviderStateMixin {
     _controller.forward();
 
     // Delay the image animation
-    Future.delayed(const Duration(seconds: 2), () {
+    Future.delayed(const Duration(seconds: 1), () {
       _imageController.forward();
+    });
+
+    // After the animation completes, navigate to the next page (e.g., HomePage)
+    Future.delayed(const Duration(seconds: 7), () {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) =>  FitnessScreen()),
+      );
     });
   }
 
@@ -120,63 +129,63 @@ class _SplashState extends State<Splash> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.yellow,
+        backgroundColor: Colors.black,
         body: AnimatedBuilder(
-            animation: Listenable.merge([_controller, _imageController]),
-            builder: (context, child) {
-              final containerSize = _sizeAnimation.value; // Current container size
-              final showImageThreshold = 120.w; // Define the size threshold
+          animation: Listenable.merge([_controller, _imageController]),
+          builder: (context, child) {
+            final containerSize = _sizeAnimation.value; // Current container size
+            final showImageThreshold = 120.w; // Define the size threshold
 
-              return Stack(
-                children: [
-                  // Container animation
-                  Positioned(
-                    top: MediaQuery.of(context).size.height * _positionAnimation.value,
-                    left: MediaQuery.of(context).size.width / 2 - (containerSize / 2), // Center horizontally
-                    child: Container(
-                      width: containerSize, // Dynamic width
-                      height: containerSize, // Dynamic height
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(_borderRadiusAnimation.value),
-                        border: Border.all(
-                          color: const Color(0xFFF97316), // Parent border color
-                          width: _parentBorderWidthAnimation.value, // Dynamic parent border width
-                        ),
+            return Stack(
+              children: [
+                // Container animation
+                Positioned(
+                  top: MediaQuery.of(context).size.height * _positionAnimation.value,
+                  left: MediaQuery.of(context).size.width / 2 - (containerSize / 2), // Center horizontally
+                  child: Container(
+                    width: containerSize, // Dynamic width
+                    height: containerSize, // Dynamic height
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(_borderRadiusAnimation.value),
+                      border: Border.all(
+                        color: const Color(0xFFF97316), // Parent border color
+                        width: _parentBorderWidthAnimation.value, // Dynamic parent border width
                       ),
-                      child: Container(
-                        width: containerSize * 0.9, // Slightly smaller than the parent
-                        height: containerSize * 0.9, // Slightly smaller than the parent
-                        decoration: BoxDecoration(
-                          gradient: const LinearGradient(
-                            begin: Alignment(0.80, -0.60),
-                            end: Alignment(-0.8, 0.6),
-                            colors: [Color(0xFFDB2777), Color(0xFFF97316)],
-                          ),
-                          borderRadius: BorderRadius.circular(_borderRadiusAnimation.value - 10.r), // Slightly smaller radius
-                          border: Border.all(
-                            color: Colors.white, // Child border color
-                            width: _childBorderWidthAnimation.value, // Dynamic child border width
-                          ),
+                    ),
+                    child: Container(
+                      width: containerSize * 0.9, // Slightly smaller than the parent
+                      height: containerSize * 0.9, // Slightly smaller than the parent
+                      decoration: BoxDecoration(
+                        gradient: const LinearGradient(
+                          begin: Alignment(0.80, -0.60),
+                          end: Alignment(-0.8, 0.6),
+                          colors: [Color(0xFFDB2777), Color(0xFFF97316)],
+                        ),
+                        borderRadius: BorderRadius.circular(_borderRadiusAnimation.value - 10.r), // Slightly smaller radius
+                        border: Border.all(
+                          color: Colors.white, // Child border color
+                          width: _childBorderWidthAnimation.value, // Dynamic child border width
                         ),
                       ),
                     ),
                   ),
+                ),
 
-                  // Image animation (appears only after the container reaches the threshold size)
-                  if (containerSize >= showImageThreshold)
-                    Positioned(
-                      top: MediaQuery.of(context).size.height * _imagePositionAnimation.value,
-                      left: MediaQuery.of(context).size.width * _imageHorizontalPositionAnimation.value - (containerSize * 0.8 / 2),
-                      child: Image.asset(
-                        'assets/Group 2.png', // Path to your image
-                        width: containerSize * 0.6, // Adjust image size relative to the container
-                        height: containerSize * 0.6, // Adjust image size relative to the container
-                        fit: BoxFit.contain,
-                      ),
+                // Image animation (appears only after the container reaches the threshold size)
+                if (containerSize >= showImageThreshold)
+                  Positioned(
+                    top: MediaQuery.of(context).size.height * _imagePositionAnimation.value,
+                    left: MediaQuery.of(context).size.width * _imageHorizontalPositionAnimation.value - (containerSize * 0.8 / 2),
+                    child: Image.asset(
+                      'assets/Group 2.png', // Path to your image
+                      width: containerSize * 0.6, // Adjust image size relative to the container
+                      height: containerSize * 0.6, // Adjust image size relative to the container
+                      fit: BoxFit.contain,
                     ),
-                ],
-              );
-            },
-    ));
+                  ),
+              ],
+            );
+          },
+        ));
   }
 }

@@ -1,6 +1,8 @@
-import 'package:fitn_earn/SignUp/SignUp_Phone.dart';
+
+import 'package:fitn_earn/Splash/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -24,7 +26,7 @@ class MyApp extends StatelessWidget {
               colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
               useMaterial3: true,
             ),
-            home: SignUP_Phone(),
+            home: Splash(),
           );
         });
   }

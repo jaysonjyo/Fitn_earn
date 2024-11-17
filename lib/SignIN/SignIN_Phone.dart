@@ -1,3 +1,6 @@
+import 'package:fitn_earn/SignIN/Google/SignIN_GoogleCancel.dart';
+import 'package:fitn_earn/SignIN/Google/SignIN_GoogleMain.dart';
+import 'package:fitn_earn/SignIN/SignIN_Otp.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -22,13 +25,13 @@ class _SignIN_PhoneState extends State<SignIN_Phone> {
   String? _validateInput(String? value) {
     if (value == null || value.isEmpty) {
       setState(() {
-        _errorMessage = 'Field cannot be empty';
+        _errorMessage = 'Wrong Number, Please try again.';
         _isValid = false;
       });
       return '';
     } else if (value.length < 10) {
       setState(() {
-        _errorMessage = 'Wrong Number, Please try again.';
+        _errorMessage = 'Field cannot be empty';
         _isValid = false;
       });
       return '';
@@ -152,10 +155,7 @@ class _SignIN_PhoneState extends State<SignIN_Phone> {
                       ),if (_errorMessage != null || _isValid)
                         Row(
                             children: [
-                              _isValid? Icon(
-                                Icons.check_circle ,
-                                color: _isValid ? Colors.green : Colors.red,
-                              ):Image.asset("assets/icon.png",width: 16.w,height: 16.h,),
+                              _isValid? SizedBox():Image.asset("assets/icon.png",width: 16.w,height: 16.h,),
                               SizedBox(width: 4),
                               if (_errorMessage != null)
                                 Text(
@@ -167,7 +167,7 @@ class _SignIN_PhoneState extends State<SignIN_Phone> {
                         final isValid = _formKey.currentState!.validate();
                         if (isValid
                         ) {
-                        //  Navigator.of(context).push(MaterialPageRoute(builder: (_)=>Arrowpage()));
+                          Navigator.of(context).push(MaterialPageRoute(builder: (_)=>SignIN_Otp()));
                         }
                         _formKey.currentState?.save();
 
@@ -175,7 +175,6 @@ class _SignIN_PhoneState extends State<SignIN_Phone> {
                         child: Container(
                           width: 328.w,
                           height: 48.h,
-                          // padding: const EdgeInsets.symmetric(horizontal: 72, vertical: 8),
                           decoration: ShapeDecoration(
                             gradient: RadialGradient(
                               center: Alignment(1, 0.50),
@@ -243,12 +242,11 @@ class _SignIN_PhoneState extends State<SignIN_Phone> {
                         ),
                       ),SizedBox(height: 16.h,),
                       GestureDetector(onTap: (){
-                        //signInwithGoogle();
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_)=>SignIN_Google_cancelPage()));
                       },
                         child: Container(
                           width: 328.w,
                           height: 48.h,
-                                            //    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 9),
                           decoration: ShapeDecoration(
                             shape: RoundedRectangleBorder(
                               side: BorderSide(width: 2.w, color: Color(0xFFE5E5E5)),
@@ -265,7 +263,7 @@ class _SignIN_PhoneState extends State<SignIN_Phone> {
                                 height: 24.h,
                                 clipBehavior: Clip.antiAlias,
                                 decoration: BoxDecoration(),
-                                child: FlutterLogo(),
+                                child:Image(image: AssetImage("assets/google.png")),
                               ),
                                SizedBox(width: 8.w),
                               Text(
@@ -340,33 +338,6 @@ class _SignIN_PhoneState extends State<SignIN_Phone> {
       ),
     );
   }
-  // Future<String?> signInwithGoogle() async {
-  //
-  //   try {
-  //     final GoogleSignInAccount? googleSignInAccount =
-  //     await _googleSignIn.signIn();
-  //     final GoogleSignInAuthentication googleSignInAuthentication =
-  //     await googleSignInAccount!.authentication;
-  //     final AuthCredential credential = GoogleAuthProvider.credential(
-  //       accessToken: googleSignInAuthentication.accessToken,
-  //       idToken: googleSignInAuthentication.idToken,
-  //     );
-  //     // await auth.signInWithCredential(credential).then((onValue) {
-  //     //   firestore.doc(auth.currentUser!.uid.toString()).set({
-  //     //     "name": auth.currentUser!.displayName.toString(),
-  //     //     "id": auth.currentUser!.uid.toString(),
-  //     //     "email":auth.currentUser!.email.toString(),
-  //     //     "profile":auth.currentUser!.photoURL.toString(),
-  //     //   });
-  //     //   Fluttertoast.showToast(msg: "Success Login");
-  //     //   Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (_) => BottamNavigationBar()),(route)=>false);
-  //     // }).onError((error, stackTrace) {
-  //     //   Fluttertoast.showToast(msg: error.toString());
-  //     // });
-  //   } on FirebaseAuthException catch (e) {
-  //     print(e.message);
-  //     throw e;
-  //   }
-  // }
+
 
 }

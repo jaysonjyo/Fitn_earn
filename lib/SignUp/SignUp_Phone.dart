@@ -1,9 +1,12 @@
 import 'package:fitn_earn/SignIN/SignIN_Phone.dart';
+import 'package:fitn_earn/SignIN/SignIN_Otp.dart';
+import 'package:fitn_earn/SignUp/Google/SignUP_GoogleCancel.dart';
+import 'package:fitn_earn/SignUp/SignUp_Otp.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-import '../Starting/onboard.dart';
+import '../Starting/FitnessScreen.dart';
 
 class SignUP_Phone extends StatefulWidget {
   const SignUP_Phone({super.key});
@@ -57,7 +60,7 @@ class _SignUP_PhoneState extends State<SignUP_Phone> {
                 child: Container(
                   width: 360.w,
 
-                  height: 581.h,
+
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -152,10 +155,7 @@ class _SignUP_PhoneState extends State<SignUP_Phone> {
                       ),if (_errorMessage != null || _isValid)
                         Row(
                             children: [
-                              _isValid? Icon(
-                                Icons.check_circle ,
-                                color: _isValid ? Colors.green : Colors.red,
-                              ):Image.asset("assets/icon.png",width: 16.w,height: 16.h,),
+                              _isValid? SizedBox():Image.asset("assets/icon.png",width: 16.w,height: 16.h,),
                               SizedBox(width: 4),
                               if (_errorMessage != null)
                                 Text(
@@ -221,7 +221,7 @@ class _SignUP_PhoneState extends State<SignUP_Phone> {
                         final isValid = _formKey.currentState!.validate();
                         if (isValid
                         ) {
-                          //Navigator.of(context).push(MaterialPageRoute(builder: (_)=>Arrowpage()));
+                          Navigator.of(context).push(MaterialPageRoute(builder: (_)=>SignUp_Otp()));
                         }
                         _formKey.currentState?.save();
 
@@ -296,40 +296,45 @@ class _SignUP_PhoneState extends State<SignUP_Phone> {
                           ],
                         ),
                       ),SizedBox(height: 16.h,),
-                      Container(
-                        width: 328.w,
-                        height: 48.h,
-                    //    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 9),
-                        decoration: ShapeDecoration(
-                          shape: RoundedRectangleBorder(
-                            side: BorderSide(width: 2.w, color: Color(0xFFE5E5E5)),
-                            borderRadius: BorderRadius.circular(8.r),
+                      GestureDetector(onTap: (){
+                        Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_)=>SignUP_Google_cancelPage()));
+
+                      },
+                        child: Container(
+                          width: 328.w,
+                          height: 48.h,
+
+                          decoration: ShapeDecoration(
+                            shape: RoundedRectangleBorder(
+                              side: BorderSide(width: 2.w, color: Color(0xFFE5E5E5)),
+                              borderRadius: BorderRadius.circular(8.r),
+                            ),
                           ),
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                              width: 24.w,
-                              height: 24.h,
-                              clipBehavior: Clip.antiAlias,
-                              decoration: BoxDecoration(),
-                              child: FlutterLogo(),
-                            ),
-                             SizedBox(width: 8.w),
-                            Text(
-                              'Sign in with Google',
-                              style:GoogleFonts.lato(
-                                textStyle: TextStyle(
-                                color: Color(0xFFD4D4D4),
-                                fontSize: 18.sp,
-                                fontWeight: FontWeight.w600,
-                                height: 0.08.h,
-                              ),)
-                            ),
-                          ],
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                width: 24.w,
+                                height: 24.h,
+                                clipBehavior: Clip.antiAlias,
+                                decoration: BoxDecoration(),
+                                child: Image(image: AssetImage("assets/google.png")),
+                              ),
+                               SizedBox(width: 8.w),
+                              Text(
+                                'Sign up with Google',
+                                style:GoogleFonts.lato(
+                                  textStyle: TextStyle(
+                                  color: Color(0xFFD4D4D4),
+                                  fontSize: 18.sp,
+                                  fontWeight: FontWeight.w600,
+                                  height: 0.08.h,
+                                ),)
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       SizedBox(height: 16.h,),
