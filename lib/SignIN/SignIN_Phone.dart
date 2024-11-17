@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
+import '../SignUp/SignUp_Phone.dart';
 
-import '../Starting/onboard.dart';
 
-class Signup_Phonenumber extends StatefulWidget {
-  const Signup_Phonenumber({super.key});
+class SignIN_Phone extends StatefulWidget {
+  const SignIN_Phone({super.key});
 
   @override
-  State<Signup_Phonenumber> createState() => _Signup_PhonenumberState();
+  State<SignIN_Phone> createState() => _SignIN_PhoneState();
 }
 
-class _Signup_PhonenumberState extends State<Signup_Phonenumber> {
+class _SignIN_PhoneState extends State<SignIN_Phone> {
   TextEditingController phonenumbercontroler = TextEditingController();
   var _formKey = GlobalKey<FormState>();
-
+  //final GoogleSignIn _googleSignIn = GoogleSignIn();
+  bool isError = false;
   String? _errorMessage;
   bool _isValid = false;
 
@@ -54,7 +56,7 @@ class _Signup_PhonenumberState extends State<Signup_Phonenumber> {
                 padding: EdgeInsets.symmetric(horizontal: 16.w),
                 child: Container(
                   width: 360.w,
-
+          
                   height: 581.h,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -65,7 +67,7 @@ class _Signup_PhonenumberState extends State<Signup_Phonenumber> {
                       SizedBox(
                           width: 48.w,
                           height: 48.h,
-
+          
                           child:Align(
                             alignment: Alignment.topLeft,
                             child: Image.asset(
@@ -78,36 +80,36 @@ class _Signup_PhonenumberState extends State<Signup_Phonenumber> {
                       ),
                       Text(
                         'Welcome to FitnEarn',
-                        style: TextStyle(
+                        style: GoogleFonts.lato(
+                          textStyle: TextStyle(
                           color: Color(0xFFE5E5E5),
                           fontSize: 32.sp,
-                          fontFamily: 'Lato',
                           fontWeight: FontWeight.w800,
-                        ),
+                        ),)
                       ),
                       SizedBox(
                         height: 12.h,
                       ),
                       Text(
-                        'Please sign up below.',
-                        style: TextStyle(
+                        'Please sign in below.',
+                        style:GoogleFonts.lato(
+                          textStyle: TextStyle(
                           color: Color(0xFF737373),
                           fontSize: 16.sp,
-                          fontFamily: 'Lato',
                           fontWeight: FontWeight.w600,
-                        ),
+                        ),)
                       ),
                       SizedBox(
                         height: 16.h,
                       ),
                       Text(
                         'Enter Mobile Number',
-                        style: TextStyle(
+                        style:GoogleFonts.lato(
+                          textStyle: TextStyle(
                           color: Color(0xFFE5E5E5),
                           fontSize: 18.sp,
-                          fontFamily: 'Lato',
                           fontWeight: FontWeight.w700,
-                        ),
+                        ),)
                       ),
                       SizedBox(
                         height: 8.h,
@@ -133,20 +135,20 @@ class _Signup_PhonenumberState extends State<Signup_Phonenumber> {
                           ),
                           focusedBorder: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10.r),
-                            borderSide:BorderSide(color:  Color(0xFFEB4C60)),
+                            borderSide: BorderSide.none,
                           ),
                           errorBorder: OutlineInputBorder(
                               borderSide: BorderSide(color:  Color(0xFFEB4C60)),
                               borderRadius: BorderRadius.circular(10.r)),
                           hintText: 'Enter Your Mobile Number',
-                          hintStyle: TextStyle(
+                          hintStyle:GoogleFonts.lato(
+                            textStyle: TextStyle(
                             color: Color(0xFFA3A3A3),
                             fontSize: 16.sp,
-                            fontFamily: 'Lato',
                             fontWeight: FontWeight.w400,
-                          ),
+                          ),)
                         ),
-                        validator:_validateInput
+                        validator: _validateInput
                       ),if (_errorMessage != null || _isValid)
                         Row(
                             children: [
@@ -160,66 +162,12 @@ class _Signup_PhonenumberState extends State<Signup_Phonenumber> {
                                   _errorMessage!,
                                   style: TextStyle(color: Colors.red, fontSize: 12),
                                 ),]),
-                       SizedBox(height: 8.h,),
-
-                      Text.rich(
-                        TextSpan(
-                          children: [
-                            TextSpan(
-                              text: 'By Signing Up, I Accept ',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 12.sp,
-                                fontFamily: 'Lato',
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                            TextSpan(
-                              text: 'Terms & Conditions',
-                              style: TextStyle(
-                                color: Color(0xFFEC4E4E),
-                                fontSize: 12.sp,
-                                fontFamily: 'Lato',
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            TextSpan(
-                              text: ' & ',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 12.sp,
-                                fontFamily: 'Lato',
-                                fontWeight: FontWeight.w400,
-                              ),
-                            ),
-                            TextSpan(
-                              text: 'Privacy policy',
-                              style: TextStyle(
-                                color: Color(0xFFEC4E4E),
-                                fontSize: 12.sp,
-                                fontFamily: 'Lato',
-                                fontWeight: FontWeight.w600,
-                              ),
-                            ),
-                            TextSpan(
-                              text: '.',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 12.sp,
-                                fontFamily: 'Lato',
-                                fontWeight: FontWeight.w400,
-
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
                       SizedBox(height: 16.h,),
                       InkWell(onTap: (){
                         final isValid = _formKey.currentState!.validate();
                         if (isValid
                         ) {
-                          //Navigator.of(context).push(MaterialPageRoute(builder: (_)=>Arrowpage()));
+                        //  Navigator.of(context).push(MaterialPageRoute(builder: (_)=>Arrowpage()));
                         }
                         _formKey.currentState?.save();
 
@@ -248,12 +196,12 @@ class _Signup_PhonenumberState extends State<Signup_Phonenumber> {
                             children: [
                               Text(
                                 'Continue With Mobile',
-                                style: TextStyle(
+                                style: GoogleFonts.lato(
+                                  textStyle:TextStyle(
                                   color: Color(0xFFF5F5F5),
                                   fontSize: 18.sp,
-                                  fontFamily: 'Lato',
                                   fontWeight: FontWeight.w600,
-                                ),
+                                ),)
                               ),
                             ],
                           ),
@@ -275,12 +223,12 @@ class _Signup_PhonenumberState extends State<Signup_Phonenumber> {
                             SizedBox(width: 16.w,),
                             Text(
                               'OR',
-                              style: TextStyle(
+                              style: GoogleFonts.lato(
+                                textStyle:TextStyle(
                                 color: Color(0xFFD4D4D4),
                                 fontSize: 16.sp,
-                                fontFamily: 'Lato',
                                 fontWeight: FontWeight.w600,
-                              ),
+                              ),)
                             ),
                         SizedBox(width: 16.w,),
                             Container(
@@ -294,40 +242,45 @@ class _Signup_PhonenumberState extends State<Signup_Phonenumber> {
                           ],
                         ),
                       ),SizedBox(height: 16.h,),
-                      Container(
-                        width: 328.w,
-                        height: 48.h,
-                    //    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 9),
-                        decoration: ShapeDecoration(
-                          shape: RoundedRectangleBorder(
-                            side: BorderSide(width: 2.w, color: Color(0xFFE5E5E5)),
-                            borderRadius: BorderRadius.circular(8.r),
+                      GestureDetector(onTap: (){
+                        //signInwithGoogle();
+                      },
+                        child: Container(
+                          width: 328.w,
+                          height: 48.h,
+                                            //    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 9),
+                          decoration: ShapeDecoration(
+                            shape: RoundedRectangleBorder(
+                              side: BorderSide(width: 2.w, color: Color(0xFFE5E5E5)),
+                              borderRadius: BorderRadius.circular(8.r),
+                            ),
                           ),
-                        ),
-                        child: Row(
-                          mainAxisSize: MainAxisSize.min,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Container(
-                              width: 24.w,
-                              height: 24.h,
-                              clipBehavior: Clip.antiAlias,
-                              decoration: BoxDecoration(),
-                              child: FlutterLogo(),
-                            ),
-                             SizedBox(width: 8.w),
-                            Text(
-                              'Sign in with Google',
-                              style: TextStyle(
-                                color: Color(0xFFD4D4D4),
-                                fontSize: 18.sp,
-                                fontFamily: 'Lato',
-                                fontWeight: FontWeight.w600,
-                                height: 0.08.h,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Container(
+                                width: 24.w,
+                                height: 24.h,
+                                clipBehavior: Clip.antiAlias,
+                                decoration: BoxDecoration(),
+                                child: FlutterLogo(),
                               ),
-                            ),
-                          ],
+                               SizedBox(width: 8.w),
+                              Text(
+                                'Sign in with Google',
+                                style: GoogleFonts.lato(
+                                  textStyle:TextStyle(
+                                  color: Color(0xFFD4D4D4),
+                                  fontSize: 18.sp,
+                                  fontFamily: 'Lato',
+                                  fontWeight: FontWeight.w600,
+                                  height: 0.08.h,
+                                ),)
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       SizedBox(height: 16.h,),
@@ -340,25 +293,29 @@ class _Signup_PhonenumberState extends State<Signup_Phonenumber> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Already have an account ?',
-                              style: TextStyle(
+                              'Don’t have an account ? ',
+                              style:GoogleFonts.lato(
+                                textStyle: TextStyle(
                                 color: Color(0xFFD4D4D4),
                                 fontSize: 16.sp,
-                                fontFamily: 'Lato',
                                 fontWeight: FontWeight.w400,
-                              ),
+                              ),)
                             ),
                              SizedBox(width: 8.w),
                             Column(
                               mainAxisSize: MainAxisSize.min,
                               children: [
-                                Text(
-                                  'Login',
-                                  style: TextStyle(
-                                    color: Color(0xFFE5E5E5),
-                                    fontSize: 16.sp,
-                                    fontFamily: 'Lato',
-                                    fontWeight: FontWeight.w600,
+                                GestureDetector(onTap: (){
+                                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (_)=>SignUP_Phone()));
+                                },
+                                  child: Text(
+                                    'Sign Up',
+                                    style:GoogleFonts.lato(
+                                      textStyle: TextStyle(
+                                      color: Color(0xFFE5E5E5),
+                                      fontSize: 16.sp,
+                                      fontWeight: FontWeight.w600,
+                                    ),)
                                   ),
                                 ),
 
@@ -372,7 +329,7 @@ class _Signup_PhonenumberState extends State<Signup_Phonenumber> {
                           ],
                         ),
                       )
-
+          
                     ],
                   ),
                 ),
@@ -383,4 +340,33 @@ class _Signup_PhonenumberState extends State<Signup_Phonenumber> {
       ),
     );
   }
+  // Future<String?> signInwithGoogle() async {
+  //
+  //   try {
+  //     final GoogleSignInAccount? googleSignInAccount =
+  //     await _googleSignIn.signIn();
+  //     final GoogleSignInAuthentication googleSignInAuthentication =
+  //     await googleSignInAccount!.authentication;
+  //     final AuthCredential credential = GoogleAuthProvider.credential(
+  //       accessToken: googleSignInAuthentication.accessToken,
+  //       idToken: googleSignInAuthentication.idToken,
+  //     );
+  //     // await auth.signInWithCredential(credential).then((onValue) {
+  //     //   firestore.doc(auth.currentUser!.uid.toString()).set({
+  //     //     "name": auth.currentUser!.displayName.toString(),
+  //     //     "id": auth.currentUser!.uid.toString(),
+  //     //     "email":auth.currentUser!.email.toString(),
+  //     //     "profile":auth.currentUser!.photoURL.toString(),
+  //     //   });
+  //     //   Fluttertoast.showToast(msg: "Success Login");
+  //     //   Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (_) => BottamNavigationBar()),(route)=>false);
+  //     // }).onError((error, stackTrace) {
+  //     //   Fluttertoast.showToast(msg: error.toString());
+  //     // });
+  //   } on FirebaseAuthException catch (e) {
+  //     print(e.message);
+  //     throw e;
+  //   }
+  // }
+
 }

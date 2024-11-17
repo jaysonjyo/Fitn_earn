@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:google_fonts/google_fonts.dart';
 import '../Starting/onboard.dart';
 
 class Otp extends StatefulWidget {
@@ -51,36 +52,36 @@ class _OtpState extends State<Otp> {
                     ),
                     Text(
                       'Welcome to FitnEarn',
-                      style: TextStyle(
+                      style:GoogleFonts.lato(
+                        textStyle: TextStyle(
                         color: Color(0xFFE5E5E5),
                         fontSize: 32.sp,
-                        fontFamily: 'Lato',
                         fontWeight: FontWeight.w800,
-                      ),
+                      ),)
                     ),
                     SizedBox(
                       height: 12.h,
                     ),
                     Text(
                       'Enter the 4 digit code shared on your phone',
-                      style: TextStyle(
+                      style:GoogleFonts.lato(
+                        textStyle: TextStyle(
                         color: Color(0xFF737373),
                         fontSize: 16.sp,
-                        fontFamily: 'Lato',
                         fontWeight: FontWeight.w600,
-                      ),
+                      ),)
                     ),
                     SizedBox(
                       height: 16.h,
                     ),
                     Text(
                       'Enter OTP',
-                      style: TextStyle(
+                      style:GoogleFonts.lato(
+                        textStyle: TextStyle(
                         color: Color(0xFFE5E5E5),
                         fontSize: 18.sp,
-                        fontFamily: 'Lato',
                         fontWeight: FontWeight.w700,
-                      ),
+                      ),)
                     ),
                     SizedBox(
                       height: 8.h,
@@ -118,91 +119,12 @@ class _OtpState extends State<Otp> {
                     ),
 
 
-                    // OtpTextField(
-                    //   filled: true,
-                    //     fillColor: Color(0xFF262626), // Set fillColor to transparent to see gradient
-                    //     fieldWidth: 48.w,
-                    //     fieldHeight: 48.h,
-                    //     borderRadius: BorderRadius.circular(10.r),
-                    //     borderWidth: 1.5.w,
-                    //     numberOfFields: 5,
-                    //     enabledBorderColor:Colors.transparent ,
-                    //     focusedBorderColor:  Color(0xFFEB4C60),
-                    //    // borderColor: Color(0xFFEB4C60),
-                    //     showFieldAsBox: true,
-                    //     onCodeChanged: (String code) {
-                    //       // handle validation or checks here
-                    //     },
-                    //     onSubmit: (String verificationCode) {
-                    //       showDialog(
-                    //         context: context,
-                    //         builder: (context) {
-                    //           return AlertDialog(
-                    //             title: Text("Verification Code"),
-                    //             content: Text('Code entered is $verificationCode'),
-                    //           );
-                    //         },
-                    //       );
-                    //     }, // end onSubmit
-                    //   ),
-
-
-
-                    // TextFormField(
-                    //   cursorColor: Colors.white,
-                    //   controller: otpcontroler,
-                    //   style: TextStyle(
-                    //       color: Colors.white, decorationThickness: 0.sp),
-                    //   textAlignVertical: TextAlignVertical.center,
-                    //   decoration: InputDecoration(
-                    //     contentPadding: EdgeInsets.symmetric(
-                    //         vertical: 10.h, horizontal: 25.w),
-                    //     filled: true,
-                    //     fillColor:
-                    //     Colors.white.withOpacity(0.18000000715255737),
-                    //     border: OutlineInputBorder(
-                    //         borderSide: BorderSide.none,
-                    //         borderRadius: BorderRadius.circular(10.r)),
-                    //     enabledBorder: OutlineInputBorder(
-                    //       borderRadius: BorderRadius.circular(10.r),
-                    //       borderSide: BorderSide.none,
-                    //     ),
-                    //     focusedBorder: OutlineInputBorder(
-                    //       borderRadius: BorderRadius.circular(10.r),
-                    //       borderSide: BorderSide.none,
-                    //     ),
-                    //     errorBorder: OutlineInputBorder(
-                    //         borderSide: BorderSide(color:  Color(0xFFEB4C60)),
-                    //         borderRadius: BorderRadius.circular(10.r)),
-                    //     hintText: 'Enter Your Mobile Number',
-                    //     hintStyle: TextStyle(
-                    //       color: Color(0xFFA3A3A3),
-                    //       fontSize: 16.sp,
-                    //       fontFamily: 'Lato',
-                    //       fontWeight: FontWeight.w400,
-                    //     ),
-                    //   ),
-                    //   validator: (value) {
-                    //     if (value!.isEmpty || value.length < 10) {
-                    //       return 'Wrong Number, Please try again.';
-                    //     }
-                    //     return null;
-                    //   },
-                    // ),
                     SizedBox(height: 16.h,),
                     InkWell(onTap: (){
-                      // final isValid = _formKey.currentState!.validate();
-                      // if (isValid
-                      // ) {
-                     //   Navigator.of(context).push(MaterialPageRoute(builder: (_)=>Arrowpage()));
-                      // }
-                      // _formKey.currentState?.save();
-
                     },
                       child: Container(
                         width: 328.w,
                         height: 48.h,
-                        // padding: const EdgeInsets.symmetric(horizontal: 72, vertical: 8),
                         decoration: ShapeDecoration(
                           gradient: RadialGradient(
                             center: Alignment(1, 0.50),
@@ -223,12 +145,12 @@ class _OtpState extends State<Otp> {
                           children: [
                             Text(
                               'Continue With Mobile',
-                              style: TextStyle(
+                              style:GoogleFonts.lato(
+                                textStyle: TextStyle(
                                 color: Color(0xFFF5F5F5),
                                 fontSize: 18.sp,
-                                fontFamily: 'Lato',
                                 fontWeight: FontWeight.w600,
-                              ),
+                              ),)
                             ),
                           ],
                         ),
@@ -250,12 +172,12 @@ class _OtpState extends State<Otp> {
                           SizedBox(width: 16.w,),
                           Text(
                             'OR',
-                            style: TextStyle(
+                            style:GoogleFonts.lato(
+                              textStyle: TextStyle(
                               color: Color(0xFFD4D4D4),
                               fontSize: 16.sp,
-                              fontFamily: 'Lato',
                               fontWeight: FontWeight.w600,
-                            ),
+                            ),)
                           ),
                           SizedBox(width: 16.w,),
                           Container(
@@ -272,7 +194,6 @@ class _OtpState extends State<Otp> {
                     Container(
                       width: 328.w,
                       height: 48.h,
-                      //    padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 9),
                       decoration: ShapeDecoration(
                         shape: RoundedRectangleBorder(
                           side: BorderSide(width: 2.w, color: Color(0xFFE5E5E5)),
@@ -294,13 +215,13 @@ class _OtpState extends State<Otp> {
                           SizedBox(width: 8.w),
                           Text(
                             'Sign in with Google',
-                            style: TextStyle(
+                            style:GoogleFonts.lato(
+                              textStyle: TextStyle(
                               color: Color(0xFFD4D4D4),
                               fontSize: 18.sp,
-                              fontFamily: 'Lato',
                               fontWeight: FontWeight.w600,
                               height: 0.08.h,
-                            ),
+                            ),)
                           ),
                         ],
                       ),
@@ -316,12 +237,12 @@ class _OtpState extends State<Otp> {
                         children: [
                           Text(
                             'Don’t have an account ? ',
-                            style: TextStyle(
+                            style: GoogleFonts.lato(
+                              textStyle:TextStyle(
                               color: Color(0xFFD4D4D4),
                               fontSize: 16.sp,
-                              fontFamily: 'Lato',
-                              fontWeight: FontWeight.w400,
-                            ),
+                                fontWeight: FontWeight.w400,
+                            ),)
                           ),
                           SizedBox(width: 8.w),
                           Column(
@@ -329,12 +250,12 @@ class _OtpState extends State<Otp> {
                             children: [
                               Text(
                                 'Sign Up',
-                                style: TextStyle(
+                                style:GoogleFonts.lato(
+                                  textStyle: TextStyle(
                                   color: Color(0xFFE5E5E5),
                                   fontSize: 16.sp,
-                                  fontFamily: 'Lato',
                                   fontWeight: FontWeight.w600,
-                                ),
+                                ),)
                               ),
 
                               Container(
